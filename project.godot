@@ -8,15 +8,11 @@
 
 config_version=5
 
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
 config/name="Water_IDEA351"
 run/main_scene="res://MainMenu.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Art/Fish/fish1.png"
 config/macos_native_icon="res://Art/Fish/fish1.icns"
 config/windows_native_icon="res://Art/Fish/fish1.ico"
