@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://boret0yq1maw6"]
+
+[ext_resource type="Texture2D" uid="uid://bfjg6gdgk68jv" path="res://Art/UI/fishButtonNineSliceNormal.png" id="1_wpkf6"]
+
+[resource]
+texture = ExtResource("1_wpkf6")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.508393, 0.312798, 0.579804, 1)

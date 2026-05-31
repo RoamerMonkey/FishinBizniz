@@ -1,0 +1,163 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjxdqxcxvgovj"]
+
+[ext_resource type="Script" path="res://settings.gd" id="1_66ibw"]
+[ext_resource type="FontFile" uid="uid://c74v74w7vqak1" path="res://Fonts/Mada-Bold.ttf" id="2_3ykye"]
+[ext_resource type="Texture2D" uid="uid://bo3fs24c4mcdk" path="res://Art/UI/fishUIButton.png" id="2_nkug2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ykye"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc0em"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj1lu"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71mqq"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j6r5"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(48, 48, 48, 48)
+
+[node name="Settings" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.356626, 0.306461, 0.282134, 1)
+
+[node name="Background" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 455.0
+offset_top = 262.0
+offset_right = 1465.0
+offset_bottom = 898.0
+script = ExtResource("1_66ibw")
+
+[node name="MasterVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -20.0
+offset_top = -190.0
+offset_right = 631.0
+offset_bottom = -60.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_3ykye")
+theme_override_font_sizes/font_size = 100
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -20.0
+offset_top = -87.0
+offset_right = 980.0
+offset_bottom = -37.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -20.0
+offset_top = 54.0
+offset_right = 936.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_3ykye")
+theme_override_font_sizes/font_size = 100
+text = "Sound Effects Volume"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -20.0
+offset_top = 156.0
+offset_right = 980.0
+offset_bottom = 206.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackgroundVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -20.0
+offset_top = 313.0
+offset_right = 865.0
+offset_bottom = 443.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_3ykye")
+theme_override_font_sizes/font_size = 100
+text = "Music Volume"
+
+[node name="BackgroundVolumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+offset_left = -20.0
+offset_top = 415.0
+offset_right = 980.0
+offset_bottom = 465.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 0
+offset_left = 1329.0
+offset_top = -246.0
+offset_right = 1449.0
+offset_bottom = -126.0
+texture_normal = SubResource("AtlasTexture_3ykye")
+texture_pressed = SubResource("AtlasTexture_gc0em")
+texture_hover = SubResource("AtlasTexture_cj1lu")
+stretch_mode = 0
+
+[node name="CursorButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 532.0
+offset_right = 447.0
+offset_bottom = 724.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_71mqq")
+texture_pressed = SubResource("AtlasTexture_3j6r5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CursorLabel" type="Label" parent="VBoxContainer/CursorButton"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 24.0
+offset_right = 482.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_3ykye")
+theme_override_font_sizes/font_size = 60
+text = "Hardware Cursor"
+autowrap_mode = 2
+
+[connection signal="drag_ended" from="VBoxContainer/MasterVolumeSlider" to="VBoxContainer" method="_on_master_volume_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/MasterVolumeSlider" to="VBoxContainer" method="_on_master_volume_slider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/SFXVolumeSlider" to="VBoxContainer" method="_on_sfx_volume_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/SFXVolumeSlider" to="VBoxContainer" method="_on_sfx_volume_slider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/BackgroundVolumeSlider" to="VBoxContainer" method="_on_background_volume_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/BackgroundVolumeSlider" to="VBoxContainer" method="_on_background_volume_slider_value_changed"]
+[connection signal="mouse_entered" from="VBoxContainer/BackButton" to="VBoxContainer" method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="VBoxContainer" method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/CursorButton" to="VBoxContainer" method="_on_cursor_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/CursorButton" to="VBoxContainer" method="_on_cursor_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/CursorButton" to="VBoxContainer" method="_on_cursor_button_toggled"]

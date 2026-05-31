@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbtic3816yvs0"]
+
+[ext_resource type="Script" uid="uid://cprulw71of2ek" path="res://Fish/fish.gd" id="1_fdbn6"]
+[ext_resource type="Texture2D" uid="uid://biewkpo0i47kf" path="res://Art/Fish/blueFish.png" id="2_3c8k1"]
+[ext_resource type="Script" uid="uid://caqixymag6odc" path="res://Fish/fishAnimation.gd" id="3_v6jjf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tloo7"]
+atlas = ExtResource("2_3c8k1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yunni"]
+atlas = ExtResource("2_3c8k1")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olijl"]
+atlas = ExtResource("2_3c8k1")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3fvw"]
+atlas = ExtResource("2_3c8k1")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhtt1"]
+atlas = ExtResource("2_3c8k1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12bix"]
+atlas = ExtResource("2_3c8k1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lb6y6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yunni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olijl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3fvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olijl")
+}],
+"loop": true,
+"name": &"default0",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhtt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tloo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12bix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tloo7")
+}],
+"loop": true,
+"name": &"default1",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa0xc"]
+size = Vector2(119, 58)
+
+[node name="BFish" type="Area2D" groups=["item"]]
+script = ExtResource("1_fdbn6")
+
+[node name="FishTexture" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -94.0
+offset_right = 88.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_tloo7")
+expand_mode = 1
+flip_h = true
+script = ExtResource("3_v6jjf")
+sprites = SubResource("SpriteFrames_lb6y6")
+current_animation = "default1"
+frame_index = 1
+auto_play = true
+playing = true
+
+[node name="FishCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-10.5, -2)
+shape = SubResource("RectangleShape2D_wa0xc")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

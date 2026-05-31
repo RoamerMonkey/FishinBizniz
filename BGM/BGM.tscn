@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4ie4l2avld41"]
+
+[ext_resource type="AudioStream" uid="uid://1emmwfavid2l" path="res://BGM/Purple Planet Music - Outrigger.mp3" id="1_00mim"]
+[ext_resource type="AudioStream" uid="uid://oo4rlbloxber" path="res://BGM/Purple Planet Music - Aquatic Downtime.mp3" id="2_17wo6"]
+[ext_resource type="AudioStream" uid="uid://b75j8y4le2km0" path="res://BGM/Silence.mp3" id="3_30ra6"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ufqgn"]
+clip_count = 3
+clip_0/name = &"Main"
+clip_0/stream = ExtResource("1_00mim")
+clip_0/auto_advance = 0
+clip_1/name = &"Game"
+clip_1/stream = ExtResource("2_17wo6")
+clip_1/auto_advance = 0
+clip_2/name = &"Silence"
+clip_2/stream = ExtResource("3_30ra6")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 2
+},
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+}
+}
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamInteractive_ufqgn")
+bus = &"BGM"

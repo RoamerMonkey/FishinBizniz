@@ -1,0 +1,133 @@
+[gd_scene load_steps=27 format=3 uid="uid://bil2jg8iuycam"]
+
+[ext_resource type="Script" uid="uid://c5hmv6rcqn4ko" path="res://SFX/sfx.gd" id="1_3x7dq"]
+[ext_resource type="AudioStream" uid="uid://cfgaxs5on13xj" path="res://SFX/ui/buttonclick.mp3" id="2_eb3b1"]
+[ext_resource type="AudioStream" uid="uid://b6ul8o8g1yjli" path="res://SFX/ui/buttonhover.wav" id="3_uu4lc"]
+[ext_resource type="AudioStream" uid="uid://c3ruh6ed2eqbs" path="res://SFX/ui/buttonplay.wav" id="4_c0hfq"]
+[ext_resource type="AudioStream" uid="uid://ds02kjf6k51dm" path="res://SFX/ui/slidedrop.ogg" id="5_plkns"]
+[ext_resource type="AudioStream" uid="uid://d20i631c7ncix" path="res://SFX/gameplay/gun_hit.wav" id="6_efxdb"]
+[ext_resource type="AudioStream" uid="uid://6loxxkododyi" path="res://SFX/gameplay/gun_reload.wav" id="7_c1s8l"]
+[ext_resource type="AudioStream" uid="uid://dlxcn1bqwelye" path="res://SFX/gameplay/gun_shoot.wav" id="8_3ullp"]
+[ext_resource type="AudioStream" uid="uid://dby7uprg1fk4t" path="res://SFX/gameplay/gun_splash.wav" id="9_dwos7"]
+[ext_resource type="AudioStream" uid="uid://q11tymajxouy" path="res://SFX/gameplay/gun_timeout.wav" id="10_xfljp"]
+[ext_resource type="AudioStream" uid="uid://dqcuc67ly1aip" path="res://SFX/gameplay/hook_coin.wav" id="11_l642q"]
+[ext_resource type="AudioStream" uid="uid://b3e6d0qivl5gg" path="res://SFX/gameplay/hook_fish.wav" id="12_le3vq"]
+[ext_resource type="AudioStream" uid="uid://rncd4lpbibtb" path="res://SFX/gameplay/hook_movefast.wav" id="13_n7sv8"]
+[ext_resource type="AudioStream" uid="uid://tdefxy02jf3s" path="res://SFX/gameplay/hook_movehorizontal.wav" id="14_hwd3q"]
+[ext_resource type="AudioStream" uid="uid://bma7mvca0sepj" path="res://SFX/gameplay/hook_movevertical.wav" id="15_l2wpg"]
+[ext_resource type="AudioStream" uid="uid://bfk5g775478et" path="res://SFX/gameplay/hook_splash.wav" id="16_t32wx"]
+[ext_resource type="AudioStream" uid="uid://w3ooslkbkhxq" path="res://SFX/gameplay/round_30seconds.mp3" id="17_ga87t"]
+[ext_resource type="AudioStream" uid="uid://b88rfx0wa0toe" path="res://SFX/gameplay/round_anticipation.wav" id="18_trb0f"]
+[ext_resource type="AudioStream" uid="uid://dw7wcgikwkac8" path="res://SFX/gameplay/round_coin.wav" id="19_3m4b5"]
+[ext_resource type="AudioStream" uid="uid://bihnry7xhkhp3" path="res://SFX/gameplay/round_countdown.wav" id="20_d758m"]
+[ext_resource type="AudioStream" uid="uid://bfe0cvygbmtqi" path="res://SFX/gameplay/round_dud.mp3" id="21_0xq38"]
+[ext_resource type="AudioStream" uid="uid://bfeuf0vti5cv5" path="res://SFX/gameplay/round_offlimit.wav" id="22_fsk67"]
+[ext_resource type="AudioStream" uid="uid://v542xsvp47ft" path="res://SFX/gameplay/round_results.mp3" id="23_ddhom"]
+[ext_resource type="AudioStream" uid="uid://c820h54ungnov" path="res://SFX/gameplay/round_start.wav" id="24_cl0ja"]
+[ext_resource type="AudioStream" uid="uid://dkq1q8dwrnjkc" path="res://SFX/gameplay/round_timeup.wav" id="25_8krgw"]
+[ext_resource type="AudioStream" uid="uid://c5divp6ct47da" path="res://SFX/gameplay/round_wanted.wav" id="26_ba84e"]
+
+[node name="SFX" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3x7dq")
+
+[node name="Buttonclick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eb3b1")
+bus = &"SFX"
+
+[node name="Buttonhover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uu4lc")
+bus = &"SFX"
+
+[node name="Buttonplay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c0hfq")
+bus = &"SFX"
+
+[node name="Slidedrop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_plkns")
+bus = &"SFX"
+
+[node name="GunHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_efxdb")
+bus = &"SFX"
+
+[node name="GunReload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_c1s8l")
+bus = &"SFX"
+
+[node name="GunShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3ullp")
+bus = &"SFX"
+
+[node name="GunSplash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_dwos7")
+bus = &"SFX"
+
+[node name="GunTimeout" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xfljp")
+bus = &"SFX"
+
+[node name="HookCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_l642q")
+bus = &"SFX"
+
+[node name="HookFish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_le3vq")
+bus = &"SFX"
+
+[node name="HookMovefast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_n7sv8")
+bus = &"SFX"
+
+[node name="HookMovehorizontal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_hwd3q")
+bus = &"SFX"
+
+[node name="HookMovevertical" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_l2wpg")
+bus = &"SFX"
+
+[node name="HookSplash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_t32wx")
+bus = &"SFX"
+
+[node name="Round30Seconds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ga87t")
+bus = &"SFX"
+
+[node name="RoundAnticipation" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_trb0f")
+bus = &"SFX"
+
+[node name="RoundCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_3m4b5")
+bus = &"SFX"
+
+[node name="RoundCountdown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_d758m")
+bus = &"SFX"
+
+[node name="RoundDud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_0xq38")
+bus = &"SFX"
+
+[node name="RoundOfflimit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_fsk67")
+bus = &"SFX"
+
+[node name="RoundResults" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_ddhom")
+bus = &"SFX"
+
+[node name="RoundStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_cl0ja")
+bus = &"SFX"
+
+[node name="RoundTimeup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_8krgw")
+bus = &"SFX"
+
+[node name="RoundWanted" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_ba84e")
+bus = &"SFX"

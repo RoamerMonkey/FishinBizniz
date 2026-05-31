@@ -1,0 +1,427 @@
+[gd_scene load_steps=21 format=3 uid="uid://byqa2utukn4ws"]
+
+[ext_resource type="Script" path="res://help.gd" id="1_85d8v"]
+[ext_resource type="Texture2D" uid="uid://bo3fs24c4mcdk" path="res://Art/UI/fishUIButton.png" id="2_4abyq"]
+[ext_resource type="FontFile" uid="uid://c74v74w7vqak1" path="res://Fonts/Mada-Bold.ttf" id="2_l2nui"]
+[ext_resource type="Texture2D" uid="uid://bkqs0j8bt0mqf" path="res://Art/Player/fishHook.png" id="3_24vqp"]
+[ext_resource type="Texture2D" uid="uid://b38830r62ep21" path="res://Art/Fish/fish1.png" id="4_ldbhk"]
+[ext_resource type="Texture2D" uid="uid://brvg62p4dyjnw" path="res://Art/Fish/redFish.png" id="5_7d114"]
+[ext_resource type="Texture2D" uid="uid://ks3tnicetdjq" path="res://Art/Player/fishCrosshairGreen.png" id="5_y43ri"]
+[ext_resource type="Texture2D" uid="uid://jjctlxf6y56p" path="res://TutorialScreenshots/FisherFish.png" id="6_y43ri"]
+[ext_resource type="Texture2D" uid="uid://xbvpfjr8fxw5" path="res://TutorialScreenshots/HunterFish.png" id="7_hk0a7"]
+[ext_resource type="Texture2D" uid="uid://o3ritoknhm7t" path="res://TutorialScreenshots/FisherHook.png" id="8_hk0a7"]
+[ext_resource type="Texture2D" uid="uid://chgeaufhjt2tc" path="res://Art/Player/fishCrosshairYellow.png" id="9_qt58f"]
+[ext_resource type="Texture2D" uid="uid://wwwvtsl4uf1y" path="res://Art/Player/fishCrosshairRed.png" id="10_wfqpy"]
+[ext_resource type="Texture2D" uid="uid://bbbemjbbxliqn" path="res://Art/Player/fishCrosshairGray.png" id="11_sfu24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbpj7"]
+atlas = ExtResource("5_7d114")
+region = Rect2(272, 152, 104, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk0a7"]
+atlas = ExtResource("2_4abyq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5uih"]
+atlas = ExtResource("2_4abyq")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce1yv"]
+atlas = ExtResource("2_4abyq")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2nui"]
+atlas = ExtResource("2_4abyq")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy4f4"]
+atlas = ExtResource("2_4abyq")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xckc7"]
+atlas = ExtResource("2_4abyq")
+region = Rect2(336, 0, 48, 48)
+
+[node name="Help" type="CanvasLayer"]
+script = ExtResource("1_85d8v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 1.0
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(0.563244, 0.339247, 0.574327, 1)
+
+[node name="Tab1" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -696.0
+offset_top = 56.0
+offset_right = 739.0
+offset_bottom = 1025.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 60
+text = "Play as the Fisher and/or the Hunter in a quest to earn the most points in a 1-minute round!
+
+You earn points from capturing the swimming fish. The Fisher hooks the fish out of the water. The Hunter shoots the fish dead.
+
+Compete Mode ranks between the Fisher and Hunter's scores to determine a winner. Collaborate Mode combines the Fisher and Hunter's scores for a total score."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Hook" type="TextureRect" parent="Tab1"]
+layout_mode = 0
+offset_left = -232.0
+offset_top = -616.0
+offset_right = -48.0
+offset_bottom = 488.0
+texture = ExtResource("3_24vqp")
+
+[node name="Fish1" type="TextureRect" parent="Tab1"]
+layout_mode = 0
+offset_left = -256.0
+offset_top = 416.0
+offset_right = -32.0
+offset_bottom = 640.0
+texture = ExtResource("4_ldbhk")
+
+[node name="Fish2" type="TextureRect" parent="Tab1"]
+layout_mode = 0
+offset_left = 1448.0
+offset_top = 451.0
+offset_right = 1631.0
+offset_bottom = 611.0
+texture = SubResource("AtlasTexture_jbpj7")
+
+[node name="Crosshair" type="TextureRect" parent="Tab1"]
+layout_mode = 0
+offset_left = 1376.0
+offset_top = 360.0
+offset_right = 1680.0
+offset_bottom = 664.0
+texture = ExtResource("10_wfqpy")
+
+[node name="Tab2" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -888.0
+offset_top = 48.0
+offset_right = 784.0
+offset_bottom = 531.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 60
+text = "The Fisher and Hunter each have randomly assigned “wanted”, “dud”, and “off-limits” fish.
+- Wanted fish earn 200 points.
+- Dud fish earn no points.
+- Off-limits fish lose 100 points.
+- Any other fish earns 100 points."
+autowrap_mode = 2
+
+[node name="Example" type="Label" parent="Tab2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = 496.0
+offset_right = 156.0
+offset_bottom = 562.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.9186, 0.848273, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 50
+text = "Example:"
+autowrap_mode = 2
+
+[node name="Fisher" type="Label" parent="Tab2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -724.0
+offset_top = 712.0
+offset_right = -412.0
+offset_bottom = 842.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.19717, 0.581347, 0.991487, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 100
+text = "Fisher:"
+autowrap_mode = 2
+
+[node name="Hunter" type="Label" parent="Tab2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 116.0
+offset_top = 720.0
+offset_right = 428.0
+offset_bottom = 850.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.807843, 0.435294, 0.372549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 100
+text = "Hunter:"
+autowrap_mode = 2
+
+[node name="Example1" type="TextureRect" parent="Tab2"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 576.0
+offset_right = 792.0
+offset_bottom = 1020.0
+texture = ExtResource("6_y43ri")
+expand_mode = 1
+
+[node name="Example2" type="TextureRect" parent="Tab2"]
+layout_mode = 0
+offset_left = 1304.0
+offset_top = 584.0
+offset_right = 1656.0
+offset_bottom = 1028.0
+texture = ExtResource("7_hk0a7")
+expand_mode = 1
+
+[node name="Tab3" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -832.0
+offset_top = 136.0
+offset_right = 832.0
+offset_bottom = 781.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 60
+text = "Move the fishing hook left and right using “A” and “D” respectively.
+Press “S” to drop the hook down until it touches a fish, a coin, or the ground.
+Press and hold “W” to make the hook go up faster.
+Earn 200 points by hooking each of the five coins on the ground!
+You can also use the respective arrow keys to control the hook."
+autowrap_mode = 2
+
+[node name="Fisher" type="Label" parent="Tab3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = -136.0
+offset_right = 160.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.19717, 0.581347, 0.991487, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 100
+text = "Fisher:"
+autowrap_mode = 2
+
+[node name="Hook" type="TextureRect" parent="Tab3"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 672.0
+offset_right = 1317.0
+offset_bottom = 920.0
+texture = ExtResource("8_hk0a7")
+expand_mode = 1
+
+[node name="Tab4" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -832.0
+offset_top = 152.0
+offset_right = 832.0
+offset_bottom = 640.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 60
+text = "Use your mouse to aim your gun. Because you’re underwater, your crosshair is quite shaky: aim wisely!
+Left click to shoot, preferably at the fish. There will be a short 1.25 seconds delay before the shot is fired.
+You have 3 ammo bullets. You automatically reload upon running out of ammo. This takes 1.5 seconds."
+autowrap_mode = 2
+
+[node name="Hunter" type="Label" parent="Tab4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -168.0
+offset_top = -136.0
+offset_right = 176.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.807843, 0.435294, 0.372549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 100
+text = "Hunter:"
+autowrap_mode = 2
+
+[node name="Crosshair1" type="TextureRect" parent="Tab4"]
+layout_mode = 0
+offset_top = 439.0
+offset_right = 416.0
+offset_bottom = 855.0
+texture = ExtResource("5_y43ri")
+
+[node name="Crosshair2" type="Label" parent="Tab4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -792.0
+offset_top = 789.0
+offset_right = -448.0
+offset_bottom = 857.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.243137, 0.360784, 0.243137, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 50
+text = "Ready to Shoot"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Crosshair3" type="TextureRect" parent="Tab4"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 439.0
+offset_right = 832.0
+offset_bottom = 855.0
+texture = ExtResource("9_qt58f")
+
+[node name="Crosshair4" type="Label" parent="Tab4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -390.0
+offset_top = 789.0
+offset_right = -22.0
+offset_bottom = 855.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.898039, 0.866667, 0.568627, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 50
+text = "Waiting to Shoot"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Crosshair5" type="TextureRect" parent="Tab4"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 439.0
+offset_right = 1248.0
+offset_bottom = 855.0
+texture = ExtResource("10_wfqpy")
+
+[node name="Crosshair6" type="Label" parent="Tab4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 54.0
+offset_top = 789.0
+offset_right = 368.0
+offset_bottom = 855.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.858824, 0.247059, 0.329412, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 50
+text = "Shooting"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Crosshair7" type="TextureRect" parent="Tab4"]
+layout_mode = 0
+offset_left = 1248.0
+offset_top = 439.0
+offset_right = 1664.0
+offset_bottom = 855.0
+texture = ExtResource("11_sfu24")
+
+[node name="Crosshair8" type="Label" parent="Tab4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 469.0
+offset_top = 789.0
+offset_right = 783.0
+offset_bottom = 855.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.427451, 0.45098, 0.447059, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_l2nui")
+theme_override_font_sizes/font_size = 50
+text = "Reloading"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 1784.0
+offset_top = 16.0
+offset_right = 1904.0
+offset_bottom = 136.0
+texture_normal = SubResource("AtlasTexture_hk0a7")
+texture_pressed = SubResource("AtlasTexture_s5uih")
+texture_hover = SubResource("AtlasTexture_ce1yv")
+stretch_mode = 0
+
+[node name="LArrowButton" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 944.0
+offset_right = 136.0
+offset_bottom = 1064.0
+texture_normal = SubResource("AtlasTexture_l2nui")
+texture_pressed = SubResource("AtlasTexture_hy4f4")
+texture_hover = SubResource("AtlasTexture_xckc7")
+texture_disabled = SubResource("AtlasTexture_hy4f4")
+stretch_mode = 0
+flip_h = true
+
+[node name="RArrowButton" type="TextureButton" parent="."]
+offset_left = 1784.0
+offset_top = 944.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+texture_normal = SubResource("AtlasTexture_l2nui")
+texture_pressed = SubResource("AtlasTexture_hy4f4")
+texture_hover = SubResource("AtlasTexture_xckc7")
+texture_disabled = SubResource("AtlasTexture_hy4f4")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="LArrowButton" to="." method="_on_l_arrow_button_mouse_entered"]
+[connection signal="pressed" from="LArrowButton" to="." method="_on_l_arrow_button_pressed"]
+[connection signal="mouse_entered" from="RArrowButton" to="." method="_on_r_arrow_button_mouse_entered"]
+[connection signal="pressed" from="RArrowButton" to="." method="_on_r_arrow_button_pressed"]

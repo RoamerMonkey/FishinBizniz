@@ -1,0 +1,282 @@
+[gd_scene load_steps=10 format=3 uid="uid://b37hapg756pop"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_nm7lk"]
+[ext_resource type="Texture2D" uid="uid://bo3fs24c4mcdk" path="res://Art/UI/fishUIButton.png" id="2_c1t8d"]
+[ext_resource type="FontFile" uid="uid://c74v74w7vqak1" path="res://Fonts/Mada-Bold.ttf" id="2_g4wvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4wvt"]
+atlas = ExtResource("2_c1t8d")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjc1l"]
+atlas = ExtResource("2_c1t8d")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6beo"]
+atlas = ExtResource("2_c1t8d")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4av4j"]
+atlas = ExtResource("2_c1t8d")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5em78"]
+atlas = ExtResource("2_c1t8d")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h30m1"]
+atlas = ExtResource("2_c1t8d")
+region = Rect2(336, 0, 48, 48)
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_nm7lk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.18586, 0.336221, 0.437374, 1)
+
+[node name="Tab1" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -784.0
+offset_top = 158.0
+offset_right = 811.0
+offset_bottom = 965.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 60
+text = "Game Design: Roamer Monkey
+
+Art:
+- Nuuluz
+- Light Texture by Godot Docs
+
+Programming: Roamer Monkey, Siso D., Nuuluz
+
+Background Music: \"Outrigger\" and \"Aquatic Downtime\" by Purple Planet Music"
+autowrap_mode = 2
+
+[node name="Credits" type="Label" parent="Tab1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.0
+offset_top = -138.0
+offset_right = 192.0
+offset_bottom = -8.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.617992, 0.513033, 0.810688, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 100
+text = "CREDITS"
+autowrap_mode = 2
+
+[node name="Tab1Color" type="Label" parent="Tab1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -797.5
+offset_right = 832.5
+offset_bottom = 726.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.619608, 0.513726, 0.811765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 60
+text = "Game Design:
+
+Art:
+
+
+
+Programming:
+
+Background Music:"
+autowrap_mode = 2
+
+[node name="Tab2" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 140.0
+offset_right = 960.0
+offset_bottom = 218.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.617992, 0.513033, 0.810688, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 60
+text = "Sound Effects (all on Freesound):"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Tab2Left" type="Label" parent="Tab2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -878.0
+offset_top = 97.0
+offset_right = 786.0
+offset_bottom = 769.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 40
+text = "- Modern UI Hover by yuugfr1a
+- btn006 by junggle
+- Angel Fly Fish Reel Medium Wind_2 by paulprit
+- dog - eat - treat - grab by Anthousai 	
+- 05966 water surfacing splashes by Robinhood76
+- shotgun shoot by MrGungus
+- water_splash by soundscalpel.com	
+- countdown-click by Troube
+- Itemize by Scrampunk
+- Wrong Choice by unadamlar	
+- Vibraphone Sting by nomiqbomi	
+- drumroll by Heigh-hoo"
+autowrap_mode = 2
+
+[node name="Tab2Right" type="Label" parent="Tab2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.0
+offset_top = 97.0
+offset_right = 957.0
+offset_bottom = 754.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_g4wvt")
+theme_override_font_sizes/font_size = 40
+text = "- Sci Fi Interface by Jofae
+- Diamond Click by MATRIXXX_
+- Fly Fishing reeling reel by TheFlyFishingFilmmaker
+- Coin on coins_06 by deleted_user_2104797
+- Shotgun, Ready 01 by MATRIXXX_
+- g36c reload sound by GFL7
+- Impact: Metal 1 by Sheyvan
+- Race Start by JustInvoke
+- droplet_bad by willy_ineedthatapp_com
+- Achievment Chimes by LaurenPonder
+- Egg Timer, Ticking, Ringing by Kinoton
+- win by David819"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 30.0
+offset_top = 26.0
+offset_right = 916.0
+offset_bottom = 968.0
+theme_override_font_sizes/font_size = 30
+text = "* Sound Effects (all on Freesound):
+- Modern UI Hover by yuugfr1a
+- btn006 by junggle
+- Angel Fly Fish Reel Medium Wind_2 by paulprit
+- dog - eat - treat - grab by Anthousai 	
+- 05966 water surfacing splashes by Robinhood76
+- shotgun shoot by MrGungus
+- water_splash by soundscalpel.com	
+- countdown-click by Troube
+- Itemize by Scrampunk
+- Wrong Choice by unadamlar	
+- Vibraphone Sting by nomiqbomi	
+- drumroll by Heigh-hoo
+- Sci Fi Interface by Jofae
+- Diamond Click by MATRIXXX_
+- Fly Fishing reeling reel by TheFlyFishingFilmmaker
+- Coin on coins_06 by deleted_user_2104797
+- Shotgun, Ready 01 by MATRIXXX_
+- g36c reload sound by GFL7
+- Impact: Metal 1 by Sheyvan
+- Race Start by JustInvoke
+- droplet_bad by willy_ineedthatapp_com
+- Achievment Chimes by LaurenPonder
+- Egg Timer, Ticking, Ringing by Kinoton
+- win by David819"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 1000.0
+offset_top = 26.0
+offset_right = 2631.0
+offset_bottom = 968.0
+theme_override_font_sizes/font_size = 30
+text = "
+
+
+ - Light Texture by Godot Docs
+
+
+
+
+
+- Sci Fi Interface by Jofae
+- Diamond Click by MATRIXXX_
+- Fly Fishing reeling reel by TheFlyFishingFilmmaker
+- Coin on coins_06 by deleted_user_2104797
+- Shotgun, Ready 01 by MATRIXXX_
+- g36c reload sound by GFL7
+- Impact: Metal 1 by Sheyvan
+- Race Start by JustInvoke
+- droplet_bad by willy_ineedthatapp_com
+- Achievment Chimes by LaurenPonder
+- Egg Timer, Ticking, Ringing by Kinoton
+- win by David819"
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 1784.0
+offset_top = 16.0
+offset_right = 1904.0
+offset_bottom = 136.0
+texture_normal = SubResource("AtlasTexture_g4wvt")
+texture_pressed = SubResource("AtlasTexture_pjc1l")
+texture_hover = SubResource("AtlasTexture_j6beo")
+stretch_mode = 0
+
+[node name="LArrowButton" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 944.0
+offset_right = 136.0
+offset_bottom = 1064.0
+texture_normal = SubResource("AtlasTexture_4av4j")
+texture_pressed = SubResource("AtlasTexture_5em78")
+texture_hover = SubResource("AtlasTexture_h30m1")
+texture_disabled = SubResource("AtlasTexture_5em78")
+stretch_mode = 0
+flip_h = true
+
+[node name="RArrowButton" type="TextureButton" parent="."]
+offset_left = 1784.0
+offset_top = 944.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+texture_normal = SubResource("AtlasTexture_4av4j")
+texture_pressed = SubResource("AtlasTexture_5em78")
+texture_hover = SubResource("AtlasTexture_h30m1")
+texture_disabled = SubResource("AtlasTexture_5em78")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="LArrowButton" to="." method="_on_l_arrow_button_mouse_entered"]
+[connection signal="pressed" from="LArrowButton" to="." method="_on_l_arrow_button_pressed"]
+[connection signal="mouse_entered" from="RArrowButton" to="." method="_on_r_arrow_button_mouse_entered"]
+[connection signal="pressed" from="RArrowButton" to="." method="_on_r_arrow_button_pressed"]

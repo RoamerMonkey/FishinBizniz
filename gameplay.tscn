@@ -1,0 +1,1388 @@
+[gd_scene load_steps=46 format=3 uid="uid://pc2j873x4tqx"]
+
+[ext_resource type="Script" path="res://gameplay.gd" id="1_l04x2"]
+[ext_resource type="Texture2D" uid="uid://uunobgundgcy" path="res://Art/Background/fishBGTest.png" id="2_sdl2s"]
+[ext_resource type="Texture2D" uid="uid://pev06ea4vbbc" path="res://Art/UI/fishHook.png" id="3_junt1"]
+[ext_resource type="Texture2D" uid="uid://ccwj46d8n5t6u" path="res://Art/UI/fishCoin.png" id="4_l6vsk"]
+[ext_resource type="FontFile" uid="uid://nh6gfffrschr" path="res://Fonts/FjallaOne-Regular.ttf" id="4_mvvub"]
+[ext_resource type="Shader" path="res://gameplay.gdshader" id="4_xrcyo"]
+[ext_resource type="Script" path="res://timer.gd" id="5_0ig7k"]
+[ext_resource type="Texture2D" uid="uid://bo3fs24c4mcdk" path="res://Art/UI/fishUIButton.png" id="6_58udv"]
+[ext_resource type="Texture2D" uid="uid://chm8kifbv42vs" path="res://Art/UI/FisherColor.png" id="6_vhc2u"]
+[ext_resource type="FontFile" uid="uid://c74v74w7vqak1" path="res://Fonts/Mada-Bold.ttf" id="9_gab4y"]
+[ext_resource type="Texture2D" uid="uid://dvuu5121x3sx1" path="res://Art/Fish/FishSheet.png" id="12_3aae7"]
+[ext_resource type="FontFile" uid="uid://d63mg13y46gn" path="res://Fonts/Rubik-Bold.ttf" id="12_meyqw"]
+[ext_resource type="Texture2D" uid="uid://ur3ksjxydixi" path="res://Art/UI/fishWanted.png" id="12_u0uro"]
+[ext_resource type="Texture2D" uid="uid://c3845x17blqxo" path="res://Art/UI/fishBulletFill.png" id="13_a8a7v"]
+[ext_resource type="Texture2D" uid="uid://ctwchi2sn01dk" path="res://Art/UI/HunterColor.png" id="14_2hdnk"]
+[ext_resource type="Texture2D" uid="uid://boowddjplai8d" path="res://Art/UI/fishBulletEmpty.png" id="14_gy3ye"]
+[ext_resource type="Texture2D" uid="uid://dyjoift68oog6" path="res://Art/Player/fishCrosshairLogo.png" id="15_0j6w3"]
+[ext_resource type="Texture2D" uid="uid://bgwy2w1fmi0dh" path="res://PlaceholderArt/TimeoutBarUnder.png" id="16_eblu3"]
+[ext_resource type="Texture2D" uid="uid://c1lcscg7reccf" path="res://PlaceholderArt/TimeoutBarProgress.png" id="17_h8j1w"]
+[ext_resource type="PackedScene" uid="uid://cjxdqxcxvgovj" path="res://settings.tscn" id="18_3wgii"]
+[ext_resource type="Texture2D" uid="uid://chgeaufhjt2tc" path="res://Art/Player/fishCrosshairYellow.png" id="19_3lc14"]
+[ext_resource type="Texture2D" uid="uid://jgu2ov0xt3ym" path="res://Art/UI/fishHookLogo.png" id="19_eplrx"]
+[ext_resource type="Texture2D" uid="uid://dhwmhdvw5bxyn" path="res://PlaceholderArt/ReloadBarUnder.png" id="19_m50k5"]
+[ext_resource type="Texture2D" uid="uid://ks3tnicetdjq" path="res://Art/Player/fishCrosshairGreen.png" id="19_rix74"]
+[ext_resource type="Texture2D" uid="uid://wwwvtsl4uf1y" path="res://Art/Player/fishCrosshairRed.png" id="20_0h2g2"]
+[ext_resource type="Texture2D" uid="uid://xm36rdivb123" path="res://PlaceholderArt/ReloadBarProgress.png" id="20_uywvf"]
+[ext_resource type="Texture2D" uid="uid://bbbemjbbxliqn" path="res://Art/Player/fishCrosshairGray.png" id="23_awl1u"]
+[ext_resource type="Texture2D" uid="uid://bcy7i140dhpr3" path="res://Art/UI/fishCrown.png" id="26_mvabu"]
+[ext_resource type="PackedScene" uid="uid://byqa2utukn4ws" path="res://help.tscn" id="28_nudqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ulb"]
+size = Vector2(1080, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1sgc"]
+size = Vector2(1080, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulute"]
+size = Vector2(73, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sedfy"]
+size = Vector2(96, 27)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6qkwc"]
+seed = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xaje8"]
+seamless = true
+noise = SubResource("FastNoiseLite_6qkwc")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s6li6"]
+noise_type = 4
+seed = 9
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wfr2j"]
+seamless = true
+noise = SubResource("FastNoiseLite_s6li6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lr1x"]
+shader = ExtResource("4_xrcyo")
+shader_parameter/scroll1 = Vector2(0.05, 0.05)
+shader_parameter/scroll2 = Vector2(0.05, 0.05)
+shader_parameter/distortion_strength = 0.015
+shader_parameter/tone_color = Color(0.816758, 0.883053, 0.988725, 1)
+shader_parameter/light_start = 0.484
+shader_parameter/light_end = 1.0
+shader_parameter/noise1 = SubResource("NoiseTexture2D_xaje8")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_wfr2j")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13bb2"]
+size = Vector2(1, 954)
+
+[sub_resource type="InputEventKey" id="InputEventKey_b6oy1"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_o1mrd"]
+events = [SubResource("InputEventKey_b6oy1")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaen2"]
+atlas = ExtResource("6_58udv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p1c8"]
+atlas = ExtResource("6_58udv")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3nk5"]
+atlas = ExtResource("6_58udv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvdh4"]
+bg_color = Color(0.964608, 0.402587, 0, 1)
+
+[node name="Gameplay" type="Node2D"]
+script = ExtResource("1_l04x2")
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Sprite2D" parent="BG"]
+position = Vector2(901.86, 540)
+scale = Vector2(3, 3)
+texture = ExtResource("2_sdl2s")
+
+[node name="Sky" type="Area2D" parent="BG"]
+position = Vector2(420, 0)
+
+[node name="SkyCollision" type="CollisionShape2D" parent="BG/Sky"]
+position = Vector2(540, 72)
+shape = SubResource("RectangleShape2D_p3ulb")
+
+[node name="Ground" type="Area2D" parent="BG"]
+position = Vector2(420, 945)
+
+[node name="GroundCollision" type="CollisionShape2D" parent="BG/Ground"]
+position = Vector2(540, 81)
+shape = SubResource("RectangleShape2D_v1sgc")
+debug_color = Color(0.579423, 0.51738, 0.533612, 0.42)
+
+[node name="Hook" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 917.0
+offset_top = -918.0
+offset_right = 957.0
+offset_bottom = -878.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HookTexture" type="TextureRect" parent="Hook"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -82.0
+offset_right = 34.0
+offset_bottom = 494.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_junt1")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="HookArea2D" type="Area2D" parent="Hook"]
+
+[node name="HookCollision" type="CollisionShape2D" parent="Hook/HookArea2D"]
+position = Vector2(35.5, 1061)
+shape = SubResource("RectangleShape2D_ulute")
+
+[node name="Coin1" type="Area2D" parent="." groups=["coin", "item"]]
+position = Vector2(487, 920)
+
+[node name="CoinTexture" type="TextureRect" parent="Coin1"]
+offset_left = -2.0
+offset_top = -27.0
+offset_right = 164.0
+offset_bottom = 101.0
+texture = ExtResource("4_l6vsk")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinCollision" type="CollisionShape2D" parent="Coin1"]
+position = Vector2(81, 37.5)
+shape = SubResource("RectangleShape2D_sedfy")
+
+[node name="Coin2" type="Area2D" parent="." groups=["coin", "item"]]
+position = Vector2(669, 940)
+
+[node name="CoinTexture" type="TextureRect" parent="Coin2"]
+offset_left = -2.0
+offset_top = -27.0
+offset_right = 164.0
+offset_bottom = 101.0
+texture = ExtResource("4_l6vsk")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinCollision" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(81, 37)
+shape = SubResource("RectangleShape2D_sedfy")
+
+[node name="Coin3" type="Area2D" parent="." groups=["coin", "item"]]
+position = Vector2(860, 938)
+
+[node name="CoinTexture" type="TextureRect" parent="Coin3"]
+offset_left = -2.0
+offset_top = -27.0
+offset_right = 164.0
+offset_bottom = 101.0
+texture = ExtResource("4_l6vsk")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinCollision" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(81, 37)
+shape = SubResource("RectangleShape2D_sedfy")
+
+[node name="Coin4" type="Area2D" parent="." groups=["coin", "item"]]
+position = Vector2(1031, 932)
+
+[node name="CoinTexture" type="TextureRect" parent="Coin4"]
+offset_left = -2.0
+offset_top = -27.0
+offset_right = 164.0
+offset_bottom = 101.0
+texture = ExtResource("4_l6vsk")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinCollision" type="CollisionShape2D" parent="Coin4"]
+position = Vector2(81, 37)
+shape = SubResource("RectangleShape2D_sedfy")
+
+[node name="Coin5" type="Area2D" parent="." groups=["coin", "item"]]
+position = Vector2(1233, 932)
+
+[node name="CoinTexture" type="TextureRect" parent="Coin5"]
+offset_left = -2.0
+offset_top = -27.0
+offset_right = 164.0
+offset_bottom = 101.0
+texture = ExtResource("4_l6vsk")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinCollision" type="CollisionShape2D" parent="Coin5"]
+position = Vector2(81, 38)
+shape = SubResource("RectangleShape2D_sedfy")
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6lr1x")
+offset_left = 420.0
+offset_top = 204.0
+offset_right = 1508.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.367181, 0.585494, 0.941526, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FisherUI" type="CanvasLayer" parent="."]
+
+[node name="FisherColor" type="TextureRect" parent="FisherUI"]
+offset_right = 420.0
+offset_bottom = 1080.0
+texture = ExtResource("6_vhc2u")
+metadata/_edit_use_anchors_ = true
+
+[node name="FisherUI" type="Area2D" parent="FisherUI"]
+position = Vector2(12, 0)
+
+[node name="FishCollisionLeft" type="CollisionShape2D" parent="FisherUI/FisherUI"]
+position = Vector2(-12.5, 603)
+shape = SubResource("RectangleShape2D_13bb2")
+
+[node name="PauseButton" type="TextureButton" parent="FisherUI"]
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 115.0
+offset_bottom = 115.0
+toggle_mode = true
+shortcut = SubResource("Shortcut_o1mrd")
+shortcut_in_tooltip = false
+texture_normal = SubResource("AtlasTexture_kaen2")
+texture_pressed = SubResource("AtlasTexture_6p1c8")
+texture_hover = SubResource("AtlasTexture_f3nk5")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Control" parent="FisherUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 132.0
+offset_top = 13.0
+offset_right = 393.0
+offset_bottom = 115.0
+mouse_filter = 2
+script = ExtResource("5_0ig7k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="FisherUI/Timer"]
+
+[node name="TimerColorRect" type="ColorRect" parent="FisherUI/Timer"]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 102.0
+color = Color(0.0328432, 0.347551, 0.446522, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TimerColorRect2" type="ColorRect" parent="FisherUI/Timer"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 256.0
+offset_bottom = 96.0
+color = Color(0.15062, 0.703538, 0.885377, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TimerLabel" type="Label" parent="FisherUI/Timer"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 261.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FisherLogo" type="TextureRect" parent="FisherUI"]
+offset_left = 12.0
+offset_top = 97.0
+offset_right = 204.0
+offset_bottom = 289.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Fisherman" type="Label" parent="FisherUI/FisherLogo"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 56.0
+offset_right = 398.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0, 0.240645, 0.462354, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 65
+text = "FISHER:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WantedFish" type="TextureRect" parent="FisherUI"]
+offset_left = 13.0
+offset_top = 422.0
+offset_right = 205.0
+offset_bottom = 678.0
+mouse_filter = 2
+texture = ExtResource("12_u0uro")
+metadata/_edit_use_anchors_ = true
+
+[node name="WantedFish" type="Label" parent="FisherUI/WantedFish"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 173.0
+offset_bottom = 211.0
+theme_override_colors/font_color = Color(0.313487, 0.299017, 0.209803, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 40
+text = "WANTED"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WantedTexture" type="Sprite2D" parent="FisherUI/WantedFish"]
+position = Vector2(93, 80.5)
+scale = Vector2(0.35, 0.336111)
+texture = ExtResource("12_3aae7")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="DudFish" type="TextureRect" parent="FisherUI"]
+offset_left = 214.0
+offset_top = 422.0
+offset_right = 406.0
+offset_bottom = 678.0
+mouse_filter = 2
+texture = ExtResource("12_u0uro")
+metadata/_edit_use_anchors_ = true
+
+[node name="DudFish" type="Label" parent="FisherUI/DudFish"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 18.0
+offset_right = 178.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.313487, 0.299017, 0.209803, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 40
+text = "DUD"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DudTexture" type="Sprite2D" parent="FisherUI/DudFish"]
+position = Vector2(93, 80.5)
+scale = Vector2(0.35, 0.336111)
+texture = ExtResource("12_3aae7")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="OffLimitFish" type="TextureRect" parent="FisherUI"]
+offset_left = 114.0
+offset_top = 685.0
+offset_right = 306.0
+offset_bottom = 941.0
+mouse_filter = 2
+texture = ExtResource("12_u0uro")
+metadata/_edit_use_anchors_ = true
+
+[node name="OffLimitFish" type="Label" parent="FisherUI/OffLimitFish"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 175.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.313487, 0.299017, 0.209803, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 35
+text = "OFF-LIMITS"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="OffLimitTexture" type="Sprite2D" parent="FisherUI/OffLimitFish"]
+position = Vector2(93, 80.5)
+scale = Vector2(0.35, 0.336111)
+texture = ExtResource("12_3aae7")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="FisherScore" type="Control" parent="FisherUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="FisherScoreColor" type="ColorRect" parent="FisherUI/FisherScore"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 288.0
+offset_right = 392.0
+offset_bottom = 404.0
+mouse_filter = 2
+color = Color(0.201526, 0.201527, 0.201527, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FisherScoreColor2" type="ColorRect" parent="FisherUI/FisherScore"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 295.0
+offset_right = 386.0
+offset_bottom = 397.0
+mouse_filter = 2
+color = Color(0.473976, 0.473976, 0.473976, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FisherScore" type="Label" parent="FisherUI/FisherScore"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 26.0
+offset_top = 288.0
+offset_right = 392.0
+offset_bottom = 404.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterUI" type="CanvasLayer" parent="."]
+
+[node name="HunterColor" type="TextureRect" parent="HunterUI"]
+offset_left = 1500.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("14_2hdnk")
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterUI" type="Area2D" parent="HunterUI"]
+position = Vector2(1488, 0)
+
+[node name="FishCollisionRight" type="CollisionShape2D" parent="HunterUI/HunterUI"]
+position = Vector2(432, 603)
+shape = SubResource("RectangleShape2D_13bb2")
+
+[node name="Bullet0" type="TextureButton" parent="HunterUI"]
+offset_left = 1545.0
+offset_right = 1689.0
+offset_bottom = 144.0
+mouse_filter = 2
+texture_normal = ExtResource("13_a8a7v")
+texture_disabled = ExtResource("14_gy3ye")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Bullet1" type="TextureButton" parent="HunterUI"]
+offset_left = 1645.0
+offset_right = 1789.0
+offset_bottom = 144.0
+mouse_filter = 2
+texture_normal = ExtResource("13_a8a7v")
+texture_disabled = ExtResource("14_gy3ye")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Bullet2" type="TextureButton" parent="HunterUI"]
+offset_left = 1745.0
+offset_right = 1889.0
+offset_bottom = 144.0
+mouse_filter = 2
+texture_normal = ExtResource("13_a8a7v")
+texture_disabled = ExtResource("14_gy3ye")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterLogo" type="TextureRect" parent="HunterUI"]
+offset_left = 1486.0
+offset_top = 108.0
+offset_right = 1686.0
+offset_bottom = 308.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Hunter" type="Label" parent="HunterUI"]
+offset_left = 1604.0
+offset_top = 153.0
+offset_right = 1917.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0.469785, 0, 0.106296, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 65
+text = "HUNTER:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterScore" type="Control" parent="HunterUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1500.0
+offset_right = 1540.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterScoreColor" type="ColorRect" parent="HunterUI/HunterScore"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 288.0
+offset_right = 392.0
+offset_bottom = 404.0
+mouse_filter = 2
+color = Color(0.201526, 0.201527, 0.201527, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterScoreColor2" type="ColorRect" parent="HunterUI/HunterScore"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 294.0
+offset_right = 387.0
+offset_bottom = 396.0
+mouse_filter = 2
+color = Color(0.473976, 0.473976, 0.473976, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HunterScore" type="Label" parent="HunterUI/HunterScore"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 26.0
+offset_top = 288.0
+offset_right = 392.0
+offset_bottom = 404.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Reloading" type="Label" parent="HunterUI"]
+visible = false
+offset_left = 1500.0
+offset_top = 940.0
+offset_right = 1920.0
+offset_bottom = 1042.0
+theme_override_colors/font_color = Color(0.975439, 0.389173, 0.289438, 1)
+theme_override_fonts/font = ExtResource("12_meyqw")
+theme_override_font_sizes/font_size = 50
+text = "RELOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WantedFish" type="TextureRect" parent="HunterUI"]
+offset_left = 1514.0
+offset_top = 422.0
+offset_right = 1706.0
+offset_bottom = 678.0
+mouse_filter = 2
+texture = ExtResource("12_u0uro")
+metadata/_edit_use_anchors_ = true
+
+[node name="WantedFish" type="Label" parent="HunterUI/WantedFish"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 173.0
+offset_bottom = 211.0
+theme_override_colors/font_color = Color(0.313487, 0.299017, 0.209803, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 40
+text = "WANTED"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WantedTexture" type="Sprite2D" parent="HunterUI/WantedFish"]
+position = Vector2(93, 80.5)
+scale = Vector2(0.35, 0.336111)
+texture = ExtResource("12_3aae7")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="DudFish" type="TextureRect" parent="HunterUI"]
+offset_left = 1715.0
+offset_top = 422.0
+offset_right = 1907.0
+offset_bottom = 678.0
+mouse_filter = 2
+texture = ExtResource("12_u0uro")
+metadata/_edit_use_anchors_ = true
+
+[node name="DudFish" type="Label" parent="HunterUI/DudFish"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 18.0
+offset_right = 178.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.313487, 0.299017, 0.209803, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 40
+text = "DUD"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DudTexture" type="Sprite2D" parent="HunterUI/DudFish"]
+position = Vector2(93, 80.5)
+scale = Vector2(0.35, 0.336111)
+texture = ExtResource("12_3aae7")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="OffLimitFish" type="TextureRect" parent="HunterUI"]
+offset_left = 1615.0
+offset_top = 685.0
+offset_right = 1807.0
+offset_bottom = 941.0
+mouse_filter = 2
+texture = ExtResource("12_u0uro")
+metadata/_edit_use_anchors_ = true
+
+[node name="OffLimitFish" type="Label" parent="HunterUI/OffLimitFish"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 175.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.313487, 0.299017, 0.209803, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 35
+text = "OFF-LIMITS"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="OffLimitTexture" type="Sprite2D" parent="HunterUI/OffLimitFish"]
+position = Vector2(93, 80.5)
+scale = Vector2(0.35, 0.336111)
+texture = ExtResource("12_3aae7")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="StartScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="StartColor" type="ColorRect" parent="StartScreen"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.347911, 0.671178, 0.438506, 1)
+
+[node name="StartLabel" type="Label" parent="StartScreen"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(5.29438e-07, 0.329277, 0.211031, 1)
+theme_override_fonts/font = ExtResource("12_meyqw")
+theme_override_font_sizes/font_size = 200
+text = "Ready?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransitionColor" type="ColorRect" parent="StartScreen"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="StartColor" type="ColorRect" parent="PauseScreen"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.780392, 0.72549, 0.901961, 1)
+
+[node name="MenuColor" type="ColorRect" parent="PauseScreen"]
+offset_left = 560.0
+offset_top = 140.0
+offset_right = 1360.0
+offset_bottom = 940.0
+color = Color(0.769345, 0.560787, 0.970332, 1)
+
+[node name="ResumeButton" type="Button" parent="PauseScreen"]
+offset_left = 845.0
+offset_top = 272.0
+offset_right = 1076.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvdh4")
+text = "RESUME"
+
+[node name="SettingsButton" type="Button" parent="PauseScreen"]
+offset_left = 647.0
+offset_top = 470.0
+offset_right = 878.0
+offset_bottom = 572.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvdh4")
+text = "SETTINGS"
+
+[node name="HelpButton" type="Button" parent="PauseScreen"]
+offset_left = 1042.0
+offset_top = 470.0
+offset_right = 1273.0
+offset_bottom = 572.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvdh4")
+text = "HELP"
+
+[node name="MenuButton" type="Button" parent="PauseScreen"]
+offset_left = 845.0
+offset_top = 668.0
+offset_right = 1076.0
+offset_bottom = 770.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvdh4")
+text = "MENU"
+
+[node name="Standby" type="CanvasLayer" parent="."]
+
+[node name="Cursor" type="TextureRect" parent="Standby"]
+offset_left = -228.0
+offset_top = 13.0
+offset_right = -36.0
+offset_bottom = 205.0
+texture = ExtResource("19_rix74")
+
+[node name="Timeout" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TimeoutProgress" type="TextureProgressBar" parent="Timeout"]
+offset_left = 140.0
+offset_top = 974.0
+offset_right = 285.0
+offset_bottom = 1003.0
+texture_under = ExtResource("16_eblu3")
+texture_progress = ExtResource("17_h8j1w")
+
+[node name="TimeoutTimer" type="Timer" parent="Timeout"]
+one_shot = true
+
+[node name="Cursor" type="TextureRect" parent="Timeout"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("19_3lc14")
+
+[node name="Shoot" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Cursor" type="TextureRect" parent="Shoot"]
+offset_left = 95.0
+offset_top = 903.0
+offset_right = 287.0
+offset_bottom = 1095.0
+texture = ExtResource("20_0h2g2")
+
+[node name="Reload" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ReloadProgress" type="TextureProgressBar" parent="Reload"]
+offset_left = 140.0
+offset_top = 974.0
+offset_right = 285.0
+offset_bottom = 1003.0
+texture_under = ExtResource("19_m50k5")
+texture_progress = ExtResource("20_uywvf")
+
+[node name="ReloadTimer" type="Timer" parent="Reload"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Cursor" type="TextureRect" parent="Reload"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("23_awl1u")
+
+[node name="EndScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="EndColor" type="ColorRect" parent="EndScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.890196, 0.745098, 0.278431, 1)
+
+[node name="EndLabel" type="Label" parent="EndScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.458824, 0.2, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("12_meyqw")
+theme_override_font_sizes/font_size = 200
+text = "Time's up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndPopup" type="Control" parent="EndScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="MenuColor" type="ColorRect" parent="EndScreen/EndPopup"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 140.0
+offset_right = 1360.0
+offset_bottom = 940.0
+color = Color(0.866255, 0.621036, 0.0410649, 1)
+
+[node name="ReplayButton" type="Button" parent="EndScreen/EndPopup"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 784.0
+offset_right = 911.0
+offset_bottom = 886.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvdh4")
+text = "REPLAY"
+
+[node name="MenuButton" type="Button" parent="EndScreen/EndPopup"]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 784.0
+offset_right = 1239.0
+offset_bottom = 886.0
+theme_override_fonts/font = ExtResource("9_gab4y")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvdh4")
+text = "MENU"
+
+[node name="Winner" type="Label" parent="EndScreen/EndPopup"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 160.0
+offset_right = 1359.0
+offset_bottom = 262.0
+theme_override_colors/font_color = Color(0.458762, 0.198578, 0.00547251, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 60
+text = "X wins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Higher" type="ColorRect" parent="EndScreen/EndPopup"]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 440.0
+offset_right = 864.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="HigherScore" type="Label" parent="EndScreen/EndPopup/Higher"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = 216.0
+offset_right = 224.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0.458762, 0.198578, 0.00547251, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 65
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Higher"]
+visible = false
+layout_mode = 0
+offset_left = -30.0
+offset_top = -170.0
+offset_right = 162.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Higher"]
+visible = false
+layout_mode = 0
+offset_left = -35.0
+offset_top = -170.0
+offset_right = 165.0
+offset_bottom = 30.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Higher"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -168.0
+offset_right = 112.0
+offset_bottom = -72.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Lower" type="Control" parent="EndScreen/EndPopup"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="LowerBox" type="ColorRect" parent="EndScreen/EndPopup/Lower"]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 544.0
+offset_right = 1184.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="LowerScore" type="Label" parent="EndScreen/EndPopup/Lower"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 660.0
+offset_right = 1280.0
+offset_bottom = 762.0
+theme_override_colors/font_color = Color(0.458762, 0.198578, 0.00547251, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 65
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Lower"]
+visible = false
+layout_mode = 0
+offset_left = 1025.0
+offset_top = 370.0
+offset_right = 1217.0
+offset_bottom = 562.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Lower"]
+visible = false
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 370.0
+offset_right = 1220.0
+offset_bottom = 570.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Tie" type="Control" parent="EndScreen/EndPopup/Lower"]
+visible = false
+anchors_preset = 0
+offset_left = 1056.0
+offset_top = 544.0
+offset_right = 1096.0
+offset_bottom = 584.0
+mouse_filter = 2
+
+[node name="TieBox" type="ColorRect" parent="EndScreen/EndPopup/Lower/Tie"]
+layout_mode = 0
+offset_top = -104.0
+offset_right = 128.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Lower/Tie"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -270.0
+offset_right = 165.0
+offset_bottom = -70.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Lower/Tie"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -272.0
+offset_right = 112.0
+offset_bottom = -176.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Collab" type="Control" parent="EndScreen/EndPopup"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rank1" type="ColorRect" parent="EndScreen/EndPopup/Collab"]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 639.0
+offset_right = 1090.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank1"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -179.0
+offset_right = 156.0
+offset_bottom = 13.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank1"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -179.0
+offset_right = 283.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank1"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -200.0
+offset_right = 94.0
+offset_bottom = -104.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Crown2" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank1"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -192.0
+offset_right = 226.0
+offset_bottom = -96.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Rank2" type="ColorRect" parent="EndScreen/EndPopup/Collab"]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 603.0
+offset_right = 1090.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank2"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -179.0
+offset_right = 156.0
+offset_bottom = 13.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank2"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -179.0
+offset_right = 283.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank2"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -200.0
+offset_right = 94.0
+offset_bottom = -104.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Crown2" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank2"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -192.0
+offset_right = 226.0
+offset_bottom = -96.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Rank3" type="ColorRect" parent="EndScreen/EndPopup/Collab"]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 559.0
+offset_right = 1090.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank3"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -179.0
+offset_right = 156.0
+offset_bottom = 13.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank3"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -179.0
+offset_right = 283.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank3"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -200.0
+offset_right = 94.0
+offset_bottom = -104.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Crown2" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank3"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -192.0
+offset_right = 226.0
+offset_bottom = -96.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Rank4" type="ColorRect" parent="EndScreen/EndPopup/Collab"]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 521.0
+offset_right = 1090.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank4"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -179.0
+offset_right = 156.0
+offset_bottom = 13.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank4"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -179.0
+offset_right = 283.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank4"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -200.0
+offset_right = 94.0
+offset_bottom = -104.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Crown2" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank4"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -192.0
+offset_right = 226.0
+offset_bottom = -96.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Rank5" type="ColorRect" parent="EndScreen/EndPopup/Collab"]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 474.0
+offset_right = 1090.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank5"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -179.0
+offset_right = 156.0
+offset_bottom = 13.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank5"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -179.0
+offset_right = 283.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank5"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -200.0
+offset_right = 94.0
+offset_bottom = -104.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Crown2" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank5"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -192.0
+offset_right = 226.0
+offset_bottom = -96.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Rank6" type="ColorRect" parent="EndScreen/EndPopup/Collab"]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 424.0
+offset_right = 1090.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0.458824, 0.2, 0.00392157, 1)
+
+[node name="FisherLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank6"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -179.0
+offset_right = 156.0
+offset_bottom = 13.0
+mouse_filter = 2
+texture = ExtResource("19_eplrx")
+
+[node name="HunterLogo" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank6"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -179.0
+offset_right = 283.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource("15_0j6w3")
+expand_mode = 1
+
+[node name="Crown" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank6"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -200.0
+offset_right = 94.0
+offset_bottom = -104.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Crown2" type="TextureRect" parent="EndScreen/EndPopup/Collab/Rank6"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -192.0
+offset_right = 226.0
+offset_bottom = -96.0
+mouse_filter = 2
+texture = ExtResource("26_mvabu")
+expand_mode = 1
+
+[node name="Score" type="Label" parent="EndScreen/EndPopup/Collab"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 660.0
+offset_right = 1280.0
+offset_bottom = 762.0
+theme_override_colors/font_color = Color(0.458762, 0.198578, 0.00547251, 1)
+theme_override_fonts/font = ExtResource("4_mvvub")
+theme_override_font_sizes/font_size = 65
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransitionColor" type="ColorRect" parent="EndScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Settings" parent="." instance=ExtResource("18_3wgii")]
+visible = false
+
+[node name="Help" parent="." instance=ExtResource("28_nudqf")]
+visible = false
+
+[connection signal="area_entered" from="Hook/HookArea2D" to="." method="_on_hook_area_2d_area_entered"]
+[connection signal="area_entered" from="FisherUI/FisherUI" to="." method="_on_fisher_ui_area_entered"]
+[connection signal="mouse_entered" from="FisherUI/PauseButton" to="." method="_on_pause_button_mouse_entered"]
+[connection signal="toggled" from="FisherUI/PauseButton" to="." method="_on_pause_button_toggled"]
+[connection signal="timeout" from="FisherUI/Timer/Timer" to="FisherUI/Timer" method="_on_timer_timeout"]
+[connection signal="area_entered" from="HunterUI/HunterUI" to="." method="_on_hunter_ui_area_entered"]
+[connection signal="button_down" from="PauseScreen/ResumeButton" to="." method="_on_resume_button_button_down"]
+[connection signal="mouse_entered" from="PauseScreen/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="button_down" from="PauseScreen/SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="mouse_entered" from="PauseScreen/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="button_down" from="PauseScreen/HelpButton" to="." method="_on_help_button_button_down"]
+[connection signal="mouse_entered" from="PauseScreen/HelpButton" to="." method="_on_help_button_mouse_entered"]
+[connection signal="button_down" from="PauseScreen/MenuButton" to="." method="_on_menu_button_button_down"]
+[connection signal="mouse_entered" from="PauseScreen/MenuButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="visibility_changed" from="EndScreen" to="." method="_on_end_screen_visibility_changed"]
+[connection signal="button_down" from="EndScreen/EndPopup/ReplayButton" to="." method="_on_replay_button_button_down"]
+[connection signal="mouse_entered" from="EndScreen/EndPopup/ReplayButton" to="." method="_on_replay_button_mouse_entered"]
+[connection signal="button_down" from="EndScreen/EndPopup/MenuButton" to="." method="_on_menu_button_button_down"]
+[connection signal="mouse_entered" from="EndScreen/EndPopup/MenuButton" to="." method="_on_menu_button_mouse_entered"]

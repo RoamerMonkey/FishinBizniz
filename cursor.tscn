@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyk8bvo1egdeb"]
+
+[ext_resource type="Script" uid="uid://ben6f2kt37t68" path="res://cursor.gd" id="1_6cwtl"]
+
+[node name="Cursor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6cwtl")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 172.0
+offset_right = 975.0
+offset_bottom = 398.0

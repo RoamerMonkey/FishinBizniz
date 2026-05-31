@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://f6gyiudsuebj"]
+
+[ext_resource type="Script" uid="uid://4yrjhmt54v8y" path="res://test.gd" id="1_thh3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kimwe"]
+size = Vector2(717.5, 829)
+
+[node name="Test" type="Area2D"]
+script = ExtResource("1_thh3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(533.25, 521)
+shape = SubResource("RectangleShape2D_kimwe")
+
+[node name="TextureButton" type="Button" parent="."]
+offset_left = 1141.0
+offset_top = 388.0
+offset_right = 1674.0
+offset_bottom = 626.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+toggle_mode = true
+text = "PRESS"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]

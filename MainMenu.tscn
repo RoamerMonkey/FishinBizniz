@@ -1,0 +1,342 @@
+[gd_scene load_steps=21 format=3 uid="uid://co1j73762mfh4"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_jopsx"]
+[ext_resource type="Shader" path="res://gameplay.gdshader" id="2_d0gh1"]
+[ext_resource type="Texture2D" uid="uid://dt8xqu0bha5y8" path="res://Art/Background/fishBGMenu.png" id="3_1jio1"]
+[ext_resource type="Texture2D" uid="uid://bqk4iayjrlkfx" path="res://Art/Background/fishLogo.png" id="3_7eas5"]
+[ext_resource type="StyleBox" uid="uid://ba72h0cnyh6wv" path="res://Art/UI/hoverUIButton.tres" id="3_s1qfm"]
+[ext_resource type="StyleBox" uid="uid://c2j8cropycd4r" path="res://Art/UI/normalUIButton.tres" id="4_nyop3"]
+[ext_resource type="StyleBox" uid="uid://boret0yq1maw6" path="res://Art/UI/pressedUIButton.tres" id="4_r6ya3"]
+[ext_resource type="FontFile" uid="uid://nh6gfffrschr" path="res://Fonts/FjallaOne-Regular.ttf" id="5_e2xy7"]
+[ext_resource type="Texture2D" uid="uid://bo3fs24c4mcdk" path="res://Art/UI/fishUIButton.png" id="9_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://jgu2ov0xt3ym" path="res://Art/UI/fishHookLogo.png" id="10_31qfy"]
+[ext_resource type="FontFile" uid="uid://c74v74w7vqak1" path="res://Fonts/Mada-Bold.ttf" id="10_afec1"]
+[ext_resource type="Texture2D" uid="uid://dyjoift68oog6" path="res://Art/Player/fishCrosshairLogo.png" id="11_qie43"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e3po7"]
+seed = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_if0c4"]
+seamless = true
+noise = SubResource("FastNoiseLite_e3po7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v2dey"]
+noise_type = 4
+seed = 9
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l4l4p"]
+seamless = true
+noise = SubResource("FastNoiseLite_v2dey")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmafa"]
+shader = ExtResource("2_d0gh1")
+shader_parameter/scroll1 = Vector2(0.05, 0.05)
+shader_parameter/scroll2 = Vector2(0.05, 0.05)
+shader_parameter/distortion_strength = 0.015
+shader_parameter/tone_color = Color(0.816758, 0.883053, 0.988725, 1)
+shader_parameter/light_start = 0.484
+shader_parameter/light_end = 1.0
+shader_parameter/noise1 = SubResource("NoiseTexture2D_if0c4")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_l4l4p")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qfy"]
+atlas = ExtResource("9_u7cqb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qie43"]
+atlas = ExtResource("9_u7cqb")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61cf8"]
+atlas = ExtResource("9_u7cqb")
+region = Rect2(192, 0, 48, 48)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jopsx")
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_vmafa")
+layout_mode = 0
+offset_left = -116.0
+offset_right = 1980.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.367181, 0.585494, 0.941526, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 232.0
+offset_bottom = 184.0
+scale = Vector2(3, 3)
+texture = ExtResource("3_7eas5")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_right = 1980.0
+offset_bottom = 1080.0
+texture = ExtResource("3_1jio1")
+expand_mode = 1
+
+[node name="MenuContainer" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 540.0
+offset_top = 450.0
+offset_right = 540.0
+offset_bottom = 450.0
+script = ExtResource("1_jopsx")
+
+[node name="StartButton" type="Button" parent="MenuContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 300.0
+offset_right = -1.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(1.3236e-07, 0.360661, 0.143265, 1)
+theme_override_colors/font_focus_color = Color(0, 0.360784, 0.145098, 1)
+theme_override_colors/font_color = Color(0.691761, 1, 0.618191, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal_mirrored = ExtResource("4_nyop3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "PLAY"
+
+[node name="HelpButton" type="Button" parent="MenuContainer"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 370.0
+offset_right = 436.0
+offset_bottom = 544.0
+theme_override_colors/font_pressed_color = Color(0.460531, 0.419588, 0.00432888, 1)
+theme_override_colors/font_focus_color = Color(0.458824, 0.419608, 0.00392157, 1)
+theme_override_colors/font_color = Color(0.973743, 0.905665, 0, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "Help"
+
+[node name="SettingsButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+offset_left = 500.0
+offset_top = 370.0
+offset_right = 866.0
+offset_bottom = 544.0
+theme_override_colors/font_pressed_color = Color(0.497474, 0.497474, 0.497474, 1)
+theme_override_colors/font_focus_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_colors/font_color = Color(1, 0.765461, 0.730635, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+offset_left = 930.0
+offset_top = 370.0
+offset_right = 1296.0
+offset_bottom = 544.0
+theme_override_colors/font_pressed_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_colors/font_focus_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_colors/font_color = Color(0.6955, 0.968892, 1, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal_mirrored = ExtResource("4_nyop3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "Credits
+"
+
+[node name="QuitButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+offset_left = -348.0
+offset_top = 86.0
+offset_right = -64.0
+offset_bottom = 260.0
+theme_override_colors/font_pressed_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_colors/font_focus_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_colors/font_color = Color(0.888668, 0.907958, 1, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal_mirrored = ExtResource("4_nyop3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "Quit"
+
+[node name="ModeSelection" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 637.0
+offset_top = 81.0
+offset_right = 1853.0
+offset_bottom = 737.0
+color = Color(0.237539, 0.237539, 0.237539, 1)
+
+[node name="ModeSelection2" type="ColorRect" parent="ModeSelection"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1200.0
+offset_bottom = 640.0
+color = Color(0.597176, 0.597176, 0.597176, 1)
+
+[node name="Label" type="Label" parent="ModeSelection"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 39.0
+offset_right = 1200.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_afec1")
+theme_override_font_sizes/font_size = 100
+text = "SELECT A MODE:"
+horizontal_alignment = 1
+
+[node name="COMPETE" type="Button" parent="ModeSelection"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 183.0
+offset_right = 539.0
+offset_bottom = 357.0
+theme_override_colors/font_pressed_color = Color(0.372549, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.372549, 0, 0, 1)
+theme_override_colors/font_color = Color(0.776471, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "COMPETE"
+
+[node name="Hook" type="TextureRect" parent="ModeSelection/COMPETE"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = -16.0
+offset_right = 611.0
+offset_bottom = 176.0
+texture = ExtResource("10_31qfy")
+
+[node name="Gun" type="TextureRect" parent="ModeSelection/COMPETE"]
+layout_mode = 0
+offset_left = 686.0
+offset_top = -48.0
+offset_right = 958.0
+offset_bottom = 224.0
+texture = ExtResource("11_qie43")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ModeSelection/COMPETE"]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 24.0
+offset_right = 750.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.776471, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_afec1")
+theme_override_font_sizes/font_size = 75
+text = "VS."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="COLLAB" type="Button" parent="ModeSelection"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 415.0
+offset_right = 539.0
+offset_bottom = 589.0
+theme_override_colors/font_pressed_color = Color(0, 0.227451, 0.105882, 1)
+theme_override_colors/font_focus_color = Color(1.44392e-07, 0.226683, 0.105636, 1)
+theme_override_colors/font_color = Color(2.64719e-06, 0.480051, 0.402446, 1)
+theme_override_fonts/font = ExtResource("5_e2xy7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_s1qfm")
+theme_override_styles/pressed = ExtResource("4_r6ya3")
+theme_override_styles/normal = ExtResource("4_nyop3")
+text = "COLLAB"
+
+[node name="Hook" type="TextureRect" parent="ModeSelection/COLLAB"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = -16.0
+offset_right = 611.0
+offset_bottom = 176.0
+texture = ExtResource("10_31qfy")
+
+[node name="Gun" type="TextureRect" parent="ModeSelection/COLLAB"]
+layout_mode = 0
+offset_left = 686.0
+offset_top = -48.0
+offset_right = 958.0
+offset_bottom = 224.0
+texture = ExtResource("11_qie43")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ModeSelection/COLLAB"]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 24.0
+offset_right = 750.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0.478431, 0.403922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_afec1")
+theme_override_font_sizes/font_size = 100
+text = "&"
+horizontal_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="ModeSelection"]
+layout_mode = 0
+offset_left = 1148.0
+offset_top = -50.0
+offset_right = 1268.0
+offset_bottom = 70.0
+texture_normal = SubResource("AtlasTexture_31qfy")
+texture_pressed = SubResource("AtlasTexture_qie43")
+texture_hover = SubResource("AtlasTexture_61cf8")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="MenuContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/HelpButton" to="." method="_on_help_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/HelpButton" to="." method="_on_help_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/CreditsButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/QuitButton" to="MenuContainer" method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/QuitButton" to="MenuContainer" method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="ModeSelection/COMPETE" to="." method="_on_compete_mouse_entered"]
+[connection signal="pressed" from="ModeSelection/COMPETE" to="." method="_on_compete_pressed"]
+[connection signal="mouse_entered" from="ModeSelection/COLLAB" to="." method="_on_collab_mouse_entered"]
+[connection signal="pressed" from="ModeSelection/COLLAB" to="." method="_on_collab_pressed"]
+[connection signal="mouse_entered" from="ModeSelection/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="ModeSelection/BackButton" to="." method="_on_back_button_pressed"]
